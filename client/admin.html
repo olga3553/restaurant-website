@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Administracyjny - Zarządzanie Rezerwacjami</title>
+    <link rel="stylesheet" href="admin-styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Panel Administracyjny - Zarządzanie Rezerwacjami</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Imię</th>
+                    <th>Email</th>
+                    <th>Liczba Osób</th>
+                    <th>Data Rezerwacji</th>
+                    <th>Godzina Rezerwacji</th>
+                    <th>Akcje</th>
+                </tr>
+            </thead>
+            <tbody id="reservations-table">
+                <% reservations.forEach((reservation) => { %>
+                    <tr>
+                        <td><%= reservation.name %></td>
+                        <td><%= reservation.email %></td>
+                        <td><%= reservation.people %></td>
+                        <td><%= reservation.date %></td>
+                        <td><%= reservation.time %></td>
+                        <td>
+                            <button class="btn-cancel" data-id="<%= reservation._id %>">Anuluj</button>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="admin-script.js"></script>
+</body>
+</html>

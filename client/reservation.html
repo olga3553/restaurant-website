@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rezerwacja Stolika</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Rezerwacja Stolika</h1>
+        <form action="/reservation" method="post">
+            <label for="name">Imię:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="people">Liczba osób:</label>
+            <select id="people" name="people">
+                <option value="1">1 osoba</option>
+                <option value="2">2 osoby</option>
+                <option value="3">3 osoby</option>
+                <option value="4">4 osoby</option>
+                <option value="5">5 osób</option>
+                <option value="6">6 osób</option>
+                <option value="7">7 osób</option>
+                <option value="8">8 osób</option>
+                <option value="9">9 osób</option>
+                <option value="10">10 osób</option>
+            </select>
+            
+            <label for="date">Data rezerwacji:</label>
+            <input type="date" id="date" name="date" class="date-picker" required>
+            
+            <label for="time">Godzina rezerwacji:</label>
+            <input type="time" id="time" name="time" class="time-picker" min="12:00" max="20:00" required>
+            
+            <button type="submit" class="btn-reserve-form">Zarezerwuj</button>
+        </form>
+    </div>
+
+    <script>
+        // Pobierz bieżącą datę
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); // Styczeń to 0!
+        var yyyy = today.getFullYear();
+        today = yyyy + '-' + mm + '-' + dd;
+
+        // Ustaw minimalną datę wybieralną na polu daty
+        document.getElementById("date").setAttribute("min", today);
+    </script>
+</body>
+</html>
