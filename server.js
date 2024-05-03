@@ -3,6 +3,9 @@ const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
 
+// Set the view engine to EJS
+app.set('view engine', 'ejs');
+
 // Połączenie z bazą danych MongoDB
 mongoose.connect('mongodb://localhost:27017/rezerwacje');
 const db = mongoose.connection;
@@ -18,6 +21,14 @@ app.get('/', (req, res) => {
 // Endpoint dla strony rezerwacji
 app.get('/reservation', (req, res) => {
   res.sendFile(path.join(__dirname, 'client', 'reservation.html'));
+});
+
+app.get('/confirmation', (req, res) => {
+  res.sendFile(path.join(__dirname, 'confirmation.html'));
+});
+
+app.get('/admin', (req, res) => {
+  res.render(path.join(__dirname, 'client', 'admin.html'));
 });
 
 // Definicja schematu dla danych rezerwacji
@@ -54,7 +65,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
         // Zapisanie nowej rezerwacji do bazy danych
         newReservation.save().then(savedReservation => {
-            res.send('Dziękujemy za dokonanie rezerwacji!');
+          res.redirect('/confirmation');
         },
         err => {
             console.error(err);

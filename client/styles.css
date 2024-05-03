@@ -30,7 +30,7 @@ input[type="email"],
 select,
 input[type="date"],
 input[type="time"] {
-    width: 100%;
+    width: calc(100% - 22px); /* Ustawiamy szerokość pola odejmując padding i obramowanie */
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
@@ -39,6 +39,15 @@ input[type="time"] {
 
 .date-picker, .time-picker {
     text-align: center;
+}
+
+.time-picker,
+.select-wrapper {
+    width: 100%; /* Ustawienie szerokości pola odejmując padding i obramowanie */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 label:not(:last-child) {
