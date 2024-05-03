@@ -34,7 +34,9 @@
             <input type="date" id="date" name="date" class="date-picker" required>
             
             <label for="time">Godzina rezerwacji:</label>
-            <input type="time" id="time" name="time" class="time-picker" min="12:00" max="20:00" required>
+            <select id="time" name="time" class="time-picker" required>
+            </select>
+
             
             <button type="submit" class="btn-reserve-form">Zarezerwuj</button>
         </form>
@@ -51,5 +53,7 @@
         // Ustaw minimalną datę wybieralną na polu daty
         document.getElementById("date").setAttribute("min", today);
     </script>
+    <script src="scripttime.js"></script>
+
 </body>
 </html>

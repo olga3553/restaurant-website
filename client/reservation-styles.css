@@ -1,0 +1,36 @@
+/* W pliku reservation-styles.css */
+
+.homepage {
+    background-image: url('rest.jpg'); /* Dodanie tła */
+    background-size: cover; /* Zapewnia, że tło wypełni całą sekcję */
+    background-position: center; /* Wyśrodkowanie tła */
+    background-repeat: no-repeat; /* Wyłączenie powtarzania tła */
+    color: white; /* Kolor tekstu dla kontrastu */
+    text-align: center; /* Wyśrodkowanie tekstu */
+    padding: 100px 0; /* Dodanie wypełnienia na górze i na dole */
+    height: 100vh; /* Ustawia wysokość sekcji na 100% wysokości widoku */
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.btn-reserve-homepage {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #FFD700; /* Kolor przycisku */
+    color: #333; /* Kolor tekstu */
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease; /* Efekt przejścia */
+}
+
+.btn-reserve-homepage:hover {
+    background-color: #FFA500; /* Kolor przycisku po najechaniu */
+}
