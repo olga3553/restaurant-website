@@ -37,11 +37,11 @@ input[type="time"] {
     border-radius: 5px;
 }
 
-.date-picker, .time-picker {
+.date-picker, .time-picker, .people-picker {
     text-align: center;
 }
 
-.time-picker,
+.people-picker, .time-picker,
 .select-wrapper {
     width: 100%; /* Ustawienie szerokości pola odejmując padding i obramowanie */
     padding: 10px;
