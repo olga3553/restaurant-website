@@ -1,11 +1,10 @@
 .homepage {
-    background-image: url('rest.jpg'); /* Dodanie tła */
-    background-size: cover; /* Zapewnia, że tło wypełni całą sekcję */
-    background-position: center; /* Wyśrodkowanie tła */
+    background-image: url('rest.jpg'); /* Dodanie zdjęcia jako tło nagłówka */
+    background-size: cover;
+    background-position: center;
+    padding: 50px 0; /* Dostosowanie wypełnienia dla wyświetlenia tekstu */
     background-repeat: no-repeat; /* Wyłączenie powtarzania tła */
-    color: white; /* Kolor tekstu dla kontrastu */
     text-align: center; /* Wyśrodkowanie tekstu */
-    padding: 100px 0; /* Dodanie wypełnienia na górze i na dole */
     height: 100vh; /* Ustawia wysokość sekcji na 100% wysokości widoku */
 }
 
@@ -15,14 +14,22 @@
 }
 
 h1 {
-    font-size: 3rem;
+    font-family: Arial, sans-serif;
+    font-size: 5rem;
     margin-bottom: 20px;
+    color: rgb(255, 255, 255);
+    background-color: rgba(29, 29, 29, 0.5); /* Dodajemy kolorowe tło z przeźroczystością */
+    padding: 40px; /* Dodajemy wypełnienie dla lepszego oddzielenia od tła */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Dodajemy cień */
+    border-radius: 10px;
+    
 }
 
 .btn-reserve-homepage {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 15px 50px;
     background-color: #FFD700; /* Kolor przycisku */
+    font-size: 25px;
     color: #333; /* Kolor tekstu */
     text-decoration: none;
     border-radius: 5px;

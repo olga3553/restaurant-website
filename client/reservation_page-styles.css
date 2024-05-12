@@ -1,8 +1,10 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
+    background-image: url('reserv_photo2.jpg'); /* Dodanie zdjęcia jako tło nagłówka */
+    background-size: cover;
+    background-position: center;
+    padding: 50px 0; /* Dostosowanie wypełnienia dla wyświetlenia tekstu */
 }
 
 .container {
@@ -12,7 +14,8 @@ body {
 
 h1 {
     text-align: center;
-    color: #333;
+    color: #ffffff;
+    font-size: 60px;
 }
 
 form {
@@ -22,7 +25,8 @@ form {
 label {
     display: block;
     margin-bottom: 5px;
-    color: #333;
+    color: #ffffff;
+    font-size: 20px;
 }
 
 input[type="text"],
@@ -31,10 +35,11 @@ select,
 input[type="date"],
 input[type="time"] {
     width: calc(100% - 22px); /* Ustawiamy szerokość pola odejmując padding i obramowanie */
-    padding: 10px;
+    padding: 20px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 15px;
 }
 
 .date-picker, .time-picker, .people-picker {
@@ -43,11 +48,12 @@ input[type="time"] {
 
 .people-picker, .time-picker,
 .select-wrapper {
-    width: 100%; /* Ustawienie szerokości pola odejmując padding i obramowanie */
-    padding: 10px;
+    width: calc(100% + 19px); /* Ustawienie szerokości pola odejmując padding i obramowanie */
+    padding: 20px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 15px;
 }
 
 label:not(:last-child) {
@@ -55,16 +61,18 @@ label:not(:last-child) {
 }
 
 button[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
+    margin-top: 15px;
+    width: calc(100% + 19px);
+    padding: 20px;
+    background-color: #FFD700;
+    color: #333;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-size: 15px;
 }
 
 button[type="submit"]:hover {
-    background-color: #0056b3;
+    background-color: #FFA500;
 }
