@@ -17,8 +17,8 @@ h1 {
     font-family: Arial, sans-serif;
     font-size: 5rem;
     margin-bottom: 20px;
-    color: rgb(255, 255, 255);
-    background-color: rgba(29, 29, 29, 0.5); /* Dodajemy kolorowe tło z przeźroczystością */
+    color: rgb(0, 0, 0);
+    background-color: rgba(255, 255, 255, 0.5); /* Dodajemy kolorowe tło z przeźroczystością */
     padding: 40px; /* Dodajemy wypełnienie dla lepszego oddzielenia od tła */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Dodajemy cień */
     border-radius: 10px;

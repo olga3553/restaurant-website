@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Administratora</title>
+    <link rel="stylesheet" href="/admin-styles.css">
+    <script>
+        async function cancelReservation(id) {
+            try {
+                const response = await fetch(`/cancel/${id}`, {
+                    method: 'DELETE',
+                });
+                if (response.ok) {
+                    location.reload();
+                } else {
+                    console.error('Failed to cancel reservation');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Panel Administratora - Rezerwacje</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Imię</th>
+                <th>Email</th>
+                <th>Liczba osób</th>
+                <th>Data</th>
+                <th>Godzina</th>
+                <th>Akcje</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% reservations.forEach(function(reservation) { %>
+                <tr>
+                    <td><%= reservation.name %></td>
+                    <td><%= reservation.email %></td>
+                    <td><%= reservation.people %></td>
+                    <td><%= reservation.date.toDateString() %></td>
+                    <td><%= reservation.time %></td>
+                    <td>
+                        <button onclick="cancelReservation('<%= reservation._id %>')">Anuluj rezerwację</button>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+</html>
