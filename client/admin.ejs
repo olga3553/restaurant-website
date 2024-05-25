@@ -3,8 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="image/png" sizes="16x16" rel="icon" href="/icons8-restaurant-16.png">
     <title>Panel Administratora</title>
     <link rel="stylesheet" href="/admin-styles.css">
+    <style>
+        .btn-cancel-reservation {
+            padding: 10px 20px;
+            background-color: #FFA500; /* Kolor przycisku */
+            background-color: #FFD700; /* Kolor przycisku */
+            font-size: 15px;
+            color: #333; /* Kolor tekstu */
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            border: none; /* Usunięcie obramowania */
+            cursor: pointer; /* Zmiana kursora na wskaźnik */
+        }
+
+        .btn-cancel-reservation:hover {
+            background-color: #FF8C00; /* Kolor przycisku po najechaniu */
+        }
+    </style>
     <script>
         async function cancelReservation(id) {
             try {
@@ -44,7 +63,7 @@
                     <td><%= reservation.date.toDateString() %></td>
                     <td><%= reservation.time %></td>
                     <td>
-                        <button onclick="cancelReservation('<%= reservation._id %>')">Anuluj rezerwację</button>
+                        <button class="btn-cancel-reservation" onclick="cancelReservation('<%= reservation._id %>')">Anuluj rezerwację</button>
                     </td>
                 </tr>
             <% }); %>
