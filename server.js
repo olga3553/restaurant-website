@@ -49,7 +49,7 @@ app.get('/confirmation', (req, res) => {
 
 // Endpoint dla strony logowania
 app.get('/login', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client', 'login.html'));
+  res.render('login', { errorMessage: null });
 });
 
 app.post('/login', (req, res) => {
@@ -58,7 +58,7 @@ app.post('/login', (req, res) => {
     req.session.loggedIn = true;
     res.redirect('/admin');
   } else {
-    res.send('Nieprawidłowe dane logowania');
+    res.render('login', { errorMessage: 'Nieprawidłowe dane logowania' });
   }
 });
 
