@@ -1,9 +1,24 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
+const session = require('express-session');
+const bodyParser = require('body-parser');
+const bcrypt = require('bcrypt');
 
-// Set the view engine to EJS for the admin page
+// Middleware do parsowania ciała żądania
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+// Ustawienie mechanizmu sesji
+app.use(session({
+  secret: process.env.SECRET_KEY,
+  resave: false,
+  saveUninitialized: true
+}));
+
+// Ustawienie widoku EJS dla strony administratora
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'client'));
 
@@ -32,8 +47,32 @@ app.get('/confirmation', (req, res) => {
   res.sendFile(path.join(__dirname, 'client', 'confirmation.html'));
 });
 
+// Endpoint dla strony logowania
+app.get('/login', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'login.html'));
+});
+
+app.post('/login', (req, res) => {
+  const { username, password } = req.body;
+  if (username === process.env.ADMIN_USERNAME && password === process.env.ADMIN_PASSWORD) {
+    req.session.loggedIn = true;
+    res.redirect('/admin');
+  } else {
+    res.send('Nieprawidłowe dane logowania');
+  }
+});
+
+// Middleware do sprawdzania, czy użytkownik jest zalogowany
+function isAuthenticated(req, res, next) {
+  if (req.session.loggedIn) {
+    next();
+  } else {
+    res.redirect('/login');
+  }
+}
+
 // Endpoint dla strony administracyjnej
-app.get('/admin', async (req, res) => {
+app.get('/admin', isAuthenticated, async (req, res) => {
   try {
     const reservations = await Reservation.find({});
     res.render('admin', { reservations: reservations });
@@ -66,9 +105,6 @@ const reservationSchema = new mongoose.Schema({
 
 // Model danych rezerwacji
 const Reservation = mongoose.model('Reservation', reservationSchema);
-
-const bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({ extended: true }));
 
 app.post('/reservation', async (req, res) => {
   try {
