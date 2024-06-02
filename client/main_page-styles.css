@@ -1,11 +1,19 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
 .homepage {
     background-image: url('rest.jpg'); /* Dodanie zdjęcia jako tło nagłówka */
     background-size: cover;
     background-position: center;
-    padding: 50px 0; /* Dostosowanie wypełnienia dla wyświetlenia tekstu */
     background-repeat: no-repeat; /* Wyłączenie powtarzania tła */
     text-align: center; /* Wyśrodkowanie tekstu */
     height: 100vh; /* Ustawia wysokość sekcji na 100% wysokości widoku */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Ustawienie elementów na początku strony */
+    padding-top: 50px; /* Dodanie miejsca u góry */
 }
 
 .container {
@@ -22,7 +30,6 @@ h1 {
     padding: 40px; /* Dodajemy wypełnienie dla lepszego oddzielenia od tła */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Dodajemy cień */
     border-radius: 10px;
-    
 }
 
 .btn-reserve-homepage {
@@ -38,4 +45,35 @@ h1 {
 
 .btn-reserve-homepage:hover {
     background-color: #FFA500; /* Kolor przycisku po najechaniu */
+}
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.footer-container div {
+    flex: 1;
+    margin: 10px;
+}
+
+.footer h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.footer p {
+    font-size: 1rem;
+    margin: 5px 0;
 }
